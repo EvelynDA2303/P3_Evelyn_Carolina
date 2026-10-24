@@ -1,0 +1,9 @@
+datos/
+__pycache__/
+*.pyc
+.venv/
+*.zip
+*.rar
+.vscode/
+
+
