@@ -22,3 +22,7 @@ Poner la carpeta datos (con PPMI, Sarcoma y T2) junto a main.py y correr:
     python main.py
 
 Los resultados quedan en la carpeta resultados.
+
+## Integrantes
+- Evelyn Toro_1120098316
+- Carolina Gomez_1025888327
