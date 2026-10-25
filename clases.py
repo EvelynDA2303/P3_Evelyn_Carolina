@@ -411,7 +411,8 @@ class VolumenDicom:
         }
         return self.ultima_segmentacion
 
-
+# Esta clase guarda varios volumenes DICOM a la vez en un diccionario.
+# Permite cargar una carpeta, cargar todo el arbol de datos, listarlos y elegir cual usar.
 class GestorVolumenes:
     """Administra varios VolumenDicom cargados al mismo tiempo."""
 
