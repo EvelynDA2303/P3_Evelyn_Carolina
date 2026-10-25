@@ -206,6 +206,10 @@ class VolumenDicom:
     # ------------------------------------------------------------------
     # CORRECCIÓN DE ÁNGULO (ítem 4)
     # ------------------------------------------------------------------
+    ## Rota todos los cortes del volumen el angulo que escribe el usuario.
+    # 1) Calcula la matriz de rotacion con el centro en la mitad de la imagen.
+    # 2) Con warpAffine aplica esa matriz a cada corte.
+    # 3) Guarda el resultado en self.volumen_corregido, partiendo siempre del volumen original.
     def corregirAngulo(self, angulo, mostrar=False):
         """Rota cada corte transversal 'angulo' grados (positivo = antihorario)
         alrededor del punto medio de la imagen. Resultado -> self.volumen_corregido."""
