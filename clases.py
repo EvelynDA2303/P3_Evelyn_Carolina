@@ -297,7 +297,12 @@ class VolumenDicom:
     # ------------------------------------------------------------------
     # SEGMENTACIÓN, APERTURA, COMPONENTES CONEXAS Y CÍRCULO (ítem 6)
     # ------------------------------------------------------------------
-    
+    # Busca huecos (zonas oscuras o claras) dentro de un corte.
+    # 1) Normaliza el corte a uint8 y corrige el aspect para que el pixel sea cuadrado.
+    # 2) Binariza con un umbral (el del usuario o Otsu si no se da).
+    # 3) Hace una apertura con el kernel y las iteraciones elegidas para quitar ruido.
+    # 4) Con connectedComponentsWithStats mide el area de cada region en pixeles.
+    # 5) Pasa a RGB, dibuja el circulo sobre el hueco elegido y calcula el area en mm2.
     def segmentarHuecos(self, plano, indice, umbral=None, kernel=5, iteraciones=1,
                         oscuros=True, mostrar=True):
         """Segmenta 'huecos anatómicos' de un corte.
