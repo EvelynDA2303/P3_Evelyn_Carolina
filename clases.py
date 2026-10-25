@@ -249,6 +249,9 @@ class VolumenDicom:
     # ------------------------------------------------------------------
     # NORMALIZACIÓN + ECUALIZACIÓN (ítem 5)
     # ------------------------------------------------------------------
+    # Hace una copia del volumen, toma un corte y lo pasa a uint8 (0 a 255).
+    # Luego aplica equalizeHist para repartir mejor los grises y subir el contraste.
+    # Al final grafica las dos imagenes con sus histogramas y guarda el grafico y la imagen.
     def ecualizarCorte(self, indice, plano="transversal", mostrar=True):
         """Copia el volumen, normaliza a uint8 el corte elegido y lo ecualiza.
         Grafica histogramas + imágenes y guarda el gráfico y la imagen ecualizada."""
@@ -294,6 +297,7 @@ class VolumenDicom:
     # ------------------------------------------------------------------
     # SEGMENTACIÓN, APERTURA, COMPONENTES CONEXAS Y CÍRCULO (ítem 6)
     # ------------------------------------------------------------------
+    
     def segmentarHuecos(self, plano, indice, umbral=None, kernel=5, iteraciones=1,
                         oscuros=True, mostrar=True):
         """Segmenta 'huecos anatómicos' de un corte.
